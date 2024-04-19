@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.26)
-project(clion_playground)
+project(NCE_Server_Demo)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -26,5 +26,5 @@ set(PROJECT_SOURCE_DIR "${PROJECT_SOURCE_DIR}/src" )
 message( "SourceDir: ${PROJECT_SOURCE_DIR}" )
 set(SRC_FILES ${PROJECT_SOURCE_DIR}/main.cpp)
 
-add_executable(clion_playground ${SRC_FILES})
-target_link_libraries(clion_playground ${Boost_LIBRARIES} NetCommandExecutor)
+add_executable(NCE_Server_Demo ${SRC_FILES})
+target_link_libraries(NCE_Server_Demo ${Boost_LIBRARIES} NetCommandExecutor)
