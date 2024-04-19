@@ -1,0 +1,3 @@
+[submodule "libs/NetCommandExecutor"]
+	path = libs/NetCommandExecutor
+	url = git@github.com:uullrich/NetCommandExecutor.git
