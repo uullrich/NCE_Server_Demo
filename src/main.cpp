@@ -13,26 +13,24 @@ int main() {
                                                           [](Command &command) {
                                                               std::cout << "SET Test processed with value: "
                                                                         << command.value << std::endl;
-                                                              std::stringstream responseStream;
-                                                              responseStream << "Received value: " << command.value << "\n";
-                                                              command.client->send(responseStream.str());
+                                                                command.sendOk();
+                                                                //command.client->send("SET-RESPONSE test\n");
+                                                                //command.sendError("Some error occured");
                                                           },
                                                           [](Command &command) {
                                                               std::cout << "GET Test processed" << std::endl;
-                                                              command.client->send("Hello world from GET\n");
+                                                              command.sendValue("4711");
                                                           },
                                                           [](Command &command) {
                                                               std::string payload(command.data.begin(),
                                                                                   command.data.end());
                                                               std::cout << "SET-DATA Test processed with payload: "
                                                                         << payload << std::endl;
-                                                              std::stringstream responseStream;
-                                                              responseStream << "Received payload: " << payload << "\n";
-                                                              command.client->send(responseStream.str());
+                                                                command.sendOk();
                                                           },
                                                           [](Command &command) {
                                                               std::cout << "GET-DATA Test processed" << std::endl;
-                                                              command.client->send("Hello world from GET-DATA\n");
+                                                              command.sendData("blubb\n123");
                                                           }
                                                   }
     };
